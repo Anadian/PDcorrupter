@@ -8,14 +8,33 @@ my $endbyte = 0;
 my $step = 2;
 my $magnitude = 128;
 my $outputfilename = 'cor';
+my $help;
 GetOptions("inputfilename=s", \$inputfilename,
 	"startbyte=i", \$startbyte,
 	"endbyte=i", \$endbyte,
 	"step=i", \$step,
 	"magnitude=i", \$magnitude,
-	"outputfilename=s", \$outputfilename);
+	"outputfilename=s", \$outputfilename,
+	"help", \$help);
 if(!$inputfilename){
 	print('Insufficient arguments');
+	$help = 1;
+}
+if($help){
+	print(q{`pdcorrupter.pl [options]`
+It takes the following options:
+* `inputfilename [filename]`: The file you'd like to corrupt. e.g. 'a_game.rom'
+
+* `startbyte [byte]`: A **decimal** number specifying the byte to begin corrupting on; useful for avoiding headers. e.g. `1000` to begin corruption on the first kilobyte. 
+
+* `endbyte [byte]`: A decimal number specifying where it should stop corrupting. e.g. a `startbyte` of `5000` and an `endbyte` of `5005000` would specify a range of 5 MB or, to put it another way, from 1 KB to 5005 KB.
+
+* `step [bytes]`: The interval, on which, it will corrupt a byte. e.g. A value of `2` would corrupt every other byte, while `256` will corrupt every 256'th byte, and so on.
+
+* `outputfilename [filename]`: The file to save the the corrupted output to. e.g. 'a_corrupted_game.rom'
+
+* `magnitude [unsigned 8-bit integer]`: The maximum factor by which a byte can be modified: a lower number for a less severe corruption and a higher number for a more severe, more polarizing, corruption. Defaults to 128.});
+
 	die;
 }
 my $filehandle;
