@@ -34,7 +34,7 @@ pdcorrupter.pl will print its operations with the format "[byte_being_corrupted]
 Also, if it wasn't clear already, the input file will remain completely unchanged, all modifications are stored in a perl array beforing being wrote to `outputfilename`.
 
 ## About
-As you may have guessed, from format of the option and the example file 'a_game.rom', the primary use of this script is to corrupt ROMs for some surreal, and occassionally confounding, fun and that its design was inspired by the VineSauce ROM corrupter. I wanted something that behaved similarly but was usable from a shell and not slogged down by a clunking Windows UI. A reasonable request, I thought, but when searched around, I couldn't find a data corrupter I liked: so I wrote my own which can easily be used in a "one-liner" shell command to corrupt and then play a ROM like so:
+As you may have guessed, from the format of the options and the example file 'a_game.rom', the primary use for this script is to corrupt ROMs for some surreal, and occassionally confounding, fun and that its design was inspired by the VineSauce ROM corrupter. I wanted something that behaved similarly but was usable from a shell and not slogged down by a clunking Windows UI. A reasonable request, I thought, but when I searched around, I couldn't find a data corrupter I liked: so I wrote my own which can easily be used in a "one-liner" shell command to corrupt and then play a ROM like so:
 
 `pdcorrupter.pl -i n.rom -sta 1000 -e 4000 -ste 2 -o cor.rom > rec && emulator cor.rom`
 
