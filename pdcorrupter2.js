@@ -60,7 +60,8 @@ if(OptionResults.input != null){
 			else if(OptionResults.mode.startsWith('%')) mode = '%';
 			else if(OptionResults.mode.startsWith('?') || random_mode) mode = '?';
 			else mode = '+';
-		} else mode = '+';
+		} else if(random_mode) mode = '?';
+		else mode = '+';
 		console.log("Mode: ", mode);
 		for(var i = start_byte; i < end_byte; i += step){
 			var temp_mode;
@@ -80,6 +81,7 @@ if(OptionResults.input != null){
 				case '%': new_byte = Math.floor(file_data.readUInt8(i) % magnitude); break;
 				default: new_byte = file_data.readUInt8(i); break;
 			}
+			new_byte = Math.abs(new_byte % 256);
 			console.log("new byte: ", new_byte);
 			file_data.writeUInt8(new_byte, i);
 		}
