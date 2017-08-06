@@ -65,11 +65,11 @@ if(OptionResults.input != null){
 		console.log("Mode: ", mode);
 		for(var i = start_byte; i < end_byte; i += step){
 			var temp_mode;
-			if(mode === '?') temp_mode = '+-*/%'.charAt(Math.floor(Math.random() * 6));
+			if(mode === '?') temp_mode = '+-*/%'.charAt(Math.floor(Math.random() * 5));
 			else temp_mode = mode;
 			var magnitude;
 			if(OptionResults.magnitude != null && typeof(OptionResults.magnitude) === 'number') magnitude = Math.floor(OptionResults.magnitude);
-			else if(random_mode) magnitude = Math.floor(Math.random() * 128);
+			else if(random_mode) magnitude = (Math.floor(Math.random() * 128)+1);
 			else magnitude = 2;
 			console.log("%d%s%d", i, temp_mode, magnitude);
 			var new_byte;
