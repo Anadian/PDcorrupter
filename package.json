@@ -1,6 +1,6 @@
 {
 	"name": "pdcorrupter",
-	"version": "2.1.0",
+	"version": "2.3.0",
 	"Description": "A simple-stupid file corrupter.",
 	"keywords": "public domain mit apache rom file data corrupter javascript js node shell open source libre free",
 	"homepage": "https://canosw.com/software/PDcorrupter",
