@@ -16,6 +16,7 @@
 		"url": "https://github.com/Anadian/PDcorrupter.git"
 	},
 	"scripts": [
+		"test": null,
 		"runscript.sh"
 	],
 	"engines": [
