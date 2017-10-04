@@ -1,10 +1,10 @@
 {
 	"name": "pdcorrupter",
 	"version": "2.3.0",
-	"Description": "A simple-stupid file corrupter.",
+	"description": "A simple-stupid file corrupter.",
 	"keywords": "public domain mit apache rom file data corrupter javascript js node shell open source libre free",
 	"homepage": "https://canosw.com/software/PDcorrupter",
-	"license": "(MIT OR Apache)",
+	"license": "(MIT)",
 	"author": {
 		"name": "Anadian",
 		"email": "willanad@yandex.com",
@@ -16,17 +16,15 @@
 		"url": "https://github.com/Anadian/PDcorrupter.git"
 	},
 	"scripts": [
-		"test": null,
 		"runscript.sh"
 	],
 	"engines": [
 		"node"
 	],
 	"dependencies": [
-		"command-line-args"
+		"command-line-args",
+		"command-line-usage"
 	],
-	"devDependencies": [
-	],
-	"optionalDependencies": [
-	]
+	"devDependencies": [],
+	"optionalDependencies": []
 }
