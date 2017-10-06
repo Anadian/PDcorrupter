@@ -4,18 +4,23 @@ const CommandLineArgs = require('command-line-args');
 const CommandLineUsage = require('command-line-usage');
 
 const OptionDefinitions = [
+	{name: 'begin', alias: 'B', type: Number, description: 'The byte to begin corrupting on.'},
+	{name: 'count', alias: 'n', type: Boolean, description: 'Display the input files\'s length in bytes and exit.'}
+	{name: 'end', alias: 'E', type: Number, description: 'The byte to stop corrupting on.'},
+	{name: 'error', alias: 'e', type: String, description: 'The file to write logging messages to (default: writes to stderr).'},
+	{name: 'force', alias: 'f', type: Boolean, description: 'Overwrite the output file if it already exist.'},
 	{name: 'help', alias: 'h', type: Boolean, description: 'Display this help text and exit.'},
+	{name: 'input', alias: 'i', type: String, description: 'The input file whose data will be corrupted (default: reads from stdin).'},
+	{name: 'magnitude', alias: 'M', type: Number},
+	{name: 'mode', alias: 'm', type: String},
+	{name: 'output', alias: 'o', type: String, description: 'The output file to write the corrupted data (default: writes to stdout).'},
 	{name: 'random', alias: 'r', type: Boolean, description: 'Enable random mode.'},
 	{name: 'repeat', alias: 'R', type: String, description: 'Repeat a previously a previously saved (-S <file>) corruption diff.'},
-	{name: 'input', alias: 'I', type: String, description: 'The name of the file to be corrupted.'},
-	{name: 'output', alias: 'O', type: String, description: 'Name of the corrupted file.'},
-	{name: 'start', alias: 's', type: Number, description: 'The byte to begin corrupting on.'},
 	{name: 'save', alias: 'S', type: String, description: 'Save a corruption diff which can later be repeated (-R <file>).'},
-	{name: 'end', alias: 'e', type: Number, description: 'The byte to stop corrupting on.'},
+	{name: 'silence', alias: 's', type: Boolean, description: 'Silence logging.'},
 	{name: 'step', alias: 'c', type: Number, description: 'Number of bytes to skip per corruption.'},
-	{name: 'mode', alias: 'm', type: String},
-	{name: 'magnitude', alias: 'M', type: Number},
-	{name: 'count', alias: 'n', type: Boolean, description: 'Display the input files\'s length in bytes and exit.'}
+	{name: 'verbose', alias: 'v', type: Boolean, description: 'Verbose logging.'},
+	{name: 'version', alias: 'V', type: Boolean, description: 'Display version information and exit.'},
 ];
 const UsageSections = [
 	{
