@@ -1,4 +1,4 @@
-#!/usr/local/bin/node
+#!{/usr/local/bin/node} || {/usr/bin/env node}
 const FileSystem = require('fs');
 const CommandLineArgs = require('command-line-args');
 const CommandLineUsage = require('command-line-usage');
@@ -13,10 +13,11 @@ const OptionDefinitions = [
 	{name: 'magnitude', alias: 'M', type: Number},
 	{name: 'mode', alias: 'm', type: String},
 	{name: 'output', alias: 'O', type: String, description: 'The output file to write the corrupted data.'
+	{name: 'quiet', alias: 'q', type: Boolean, decsription: 'Only log errors.'},
 	{name: 'random', alias: 'r', type: Boolean, description: 'Enable random mode.'},
 	{name: 'repeat', alias: 'R', type: String, description: 'Repeat a previously a previously saved (-S <file>) corruption diff.'},
 	{name: 'save', alias: 'S', type: String, description: 'Save a corruption diff which can later be repeated (-R <file>).'},
-	{name: 'silence', alias: 's', type: Boolean, description: 'Silence logging.'},
+	{name: 'silent', alias: 's', type: Boolean, description: 'Silence logging.'},
 	{name: 'stderr', alias: 'e', type: String, description: 'Redirect stderr to the given destination.'},
 	{name: 'stdin', alias: 'i', type: Boolean, description: 'Read input data from stdin.'},
 	{name: 'stdout', alias: 'o', type: String, description: 'Redirect stdout to the given destination.'},
@@ -34,7 +35,7 @@ const UsageSections = [
 		optionList: OptionDefinitions
 	}
 ];
-const OptionResults = CommandLineArgs(OptionDefinitions);
+const OptionResults = CommandLineArgs(OptionDefinitions); 
 console.log(OptionResults);
 if(OptionResults.help != null){
 	console.log(CommandLineUsage(UsageSections));
